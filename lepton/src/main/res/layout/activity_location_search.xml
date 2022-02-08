@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".LocationSearchActivity"
+    android:orientation="vertical"
+    android:padding="@dimen/_10sdp">
+    <!-- <fragment
+         android:id="@+id/place_autocomplete"
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content"
+         android:name="com.google.android.gms.location.places.ui.PlaceAutocompleteFragment"
+         />-->
+
+    <EditText
+        android:id="@+id/et_search"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_40sdp"
+        android:background="@drawable/survey_type_spinner_bg"
+        android:paddingLeft="@dimen/_5sdp"
+        android:paddingRight="@dimen/_5sdp"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:hint="Search location"
+        android:gravity="center_vertical"
+        android:layout_marginBottom="@dimen/_5sdp"
+        android:drawableLeft="@android:drawable/btn_plus"
+        android:drawableTint="@color/icon_color"
+        android:drawablePadding="@dimen/_5sdp"/>
+
+    <ListView
+        android:id="@+id/lv_locations"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+</LinearLayout>
