@@ -15,15 +15,19 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.lepton.adapters.PlaceArrayAdapter;
 import com.example.lepton.appconstants.AppConfig;
+import com.example.leptontest.R;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.common.api.PendingResult;
 import com.google.android.gms.common.api.ResultCallback;
+import com.google.android.gms.location.places.Place;
+import com.google.android.gms.location.places.PlaceBuffer;
+import com.google.android.gms.location.places.Places;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.LatLngBounds;
-import com.google.android.libraries.places.compat.Place;
+/*import com.google.android.libraries.places.compat.Place;
 import com.google.android.libraries.places.compat.PlaceBuffer;
-import com.google.android.libraries.places.compat.Places;
+import com.google.android.libraries.places.compat.Places;*/
 
 
 public class LocationSearchActivity extends AppCompatActivity implements GoogleApiClient.OnConnectionFailedListener, GoogleApiClient.ConnectionCallbacks{
@@ -45,7 +49,7 @@ public class LocationSearchActivity extends AppCompatActivity implements GoogleA
 
         mGoogleApiClient = new GoogleApiClient.Builder(LocationSearchActivity.this)
                 .addApi(Places.GEO_DATA_API)
-                .enableAutoManage(this, GOOGLE_API_CLIENT_ID, this)
+           //     .enableAutoManage(this, GOOGLE_API_CLIENT_ID, this)
                 .addConnectionCallbacks(this)
                 .build();
         mGoogleApiClient.connect();
