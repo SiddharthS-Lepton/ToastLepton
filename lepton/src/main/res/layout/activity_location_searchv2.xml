@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        >
+        <!-- <fragment
+             android:id="@+id/place_autocomplete"
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"
+             android:name="com.google.android.gms.location.places.ui.PlaceAutocompleteFragment"
+             />-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="horizontal"
+            android:id="@+id/llSearch"
+            android:padding="@dimen/_5sdp"
+            android:background="#fff"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:layout_width="38dp"
+                android:id="@+id/ivClose"
+                android:layout_marginLeft="8dp"
+                android:paddingTop="@dimen/_10sdp"
+                android:paddingBottom="@dimen/_10sdp"
+                android:visibility="gone"
+                android:layout_gravity="center_vertical"
+                android:layout_height="wrap_content" />
+
+            <EditText
+                android:layout_width="0dp"
+                android:textColor="#454D63"
+                android:layout_weight="1"
+                android:maxLines="1"
+                android:padding="@dimen/_5sdp"
+                android:inputType="text"
+                android:lines="1"
+                android:maxLength="30"
+                android:id="@+id/et_search"
+                android:imeOptions="actionSearch"
+                android:background="@android:color/transparent"
+                android:hint="Search a location"
+                android:layout_gravity="center_vertical"
+                android:layout_height="35dp" />
+
+        </LinearLayout>
+
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_40sdp"
+            android:paddingLeft="@dimen/_5sdp"
+            android:paddingRight="@dimen/_5sdp"
+            android:visibility="gone"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:hint="Search location"
+            android:gravity="center_vertical"
+            android:layout_marginBottom="@dimen/_5sdp"
+            android:drawableTint="@color/icon_color"
+            android:drawablePadding="@dimen/_5sdp"/>
+
+
+        <ListView
+            android:id="@+id/lv_locations"
+            android:layout_width="match_parent"
+            android:divider="@null"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
+
+
+
+</LinearLayout>

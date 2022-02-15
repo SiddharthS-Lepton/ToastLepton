@@ -13,18 +13,23 @@ import android.widget.ListView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.lepton.adapters.PlaceArrayAdapter;
+
+import com.example.lepton.adapters.PlaceAdapterr;
 import com.example.lepton.appconstants.AppConfig;
 import com.example.leptontest.R;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.common.api.PendingResult;
 import com.google.android.gms.common.api.ResultCallback;
-import com.google.android.gms.location.places.Place;
+
+/*import com.google.android.gms.location.places.Place;
 import com.google.android.gms.location.places.PlaceBuffer;
-import com.google.android.gms.location.places.Places;
+import com.google.android.gms.location.places.Places;*/
+
+
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.LatLngBounds;
+import com.google.android.libraries.places.api.Places;
 /*import com.google.android.libraries.places.compat.Place;
 import com.google.android.libraries.places.compat.PlaceBuffer;
 import com.google.android.libraries.places.compat.Places;*/
@@ -33,7 +38,7 @@ import com.google.android.libraries.places.compat.Places;*/
 public class LocationSearchActivity extends AppCompatActivity implements GoogleApiClient.OnConnectionFailedListener, GoogleApiClient.ConnectionCallbacks{
 
     private final String TAG = LocationSearchActivity.class.getSimpleName();
-    private PlaceArrayAdapter mPlaceArrayAdapter;
+    private PlaceAdapterr mPlaceArrayAdapter;
     private EditText et_search;
     private ListView lv_locations;
     private static final int GOOGLE_API_CLIENT_ID = 0;
@@ -48,11 +53,16 @@ public class LocationSearchActivity extends AppCompatActivity implements GoogleA
         lv_locations = findViewById(R.id.lv_locations);
 
         mGoogleApiClient = new GoogleApiClient.Builder(LocationSearchActivity.this)
-                .addApi(Places.GEO_DATA_API)
-           //     .enableAutoManage(this, GOOGLE_API_CLIENT_ID, this)
+      //          .addApi(Places.GEO_DATA_API)
+                .enableAutoManage(this, GOOGLE_API_CLIENT_ID, this)
                 .addConnectionCallbacks(this)
                 .build();
         mGoogleApiClient.connect();
+
+      /*  if (!Places.isInitialized())
+            com.google.android.libraries.places.api.Places.initialize(this,getString(R.string.google_maps_key));
+        placesClient = com.google.android.libraries.places.api.Places.createClient(this);
+*/
 
         et_search.addTextChangedListener(new TextWatcher() {
             @Override
@@ -67,19 +77,23 @@ public class LocationSearchActivity extends AppCompatActivity implements GoogleA
 
             @Override
             public void afterTextChanged(Editable s) {
-                mPlaceArrayAdapter.getFilter().filter(s);
+           //     mPlaceArrayAdapter.getFilter().filter(s);
 
             }
         });
-        lv_locations.setOnItemClickListener(mAutocompleteClickListener);
-        mPlaceArrayAdapter = new PlaceArrayAdapter(this, android.R.layout.simple_list_item_1, BOUNDS_INDIA, null);
-        lv_locations.setAdapter(mPlaceArrayAdapter);
+
+    //    lv_locations.setOnItemClickListener(mAutocompleteClickListener);
+
+    /*    mPlaceArrayAdapter = new PlaceArrayAdapter(this, android.R.layout.simple_list_item_1, BOUNDS_INDIA, null);
+        lv_locations.setAdapter(mPlaceArrayAdapter);*/
+
+
         // mPlaceArrayAdapter.getFilter().filter();
     }
 
     @Override
     public void onConnected(Bundle bundle) {
-        mPlaceArrayAdapter.setGoogleApiClient(mGoogleApiClient);
+     //   mPlaceArrayAdapter.setGoogleApiClient(mGoogleApiClient);
         Log.i("Location", "Google Places API connected.");
 
     }
@@ -92,10 +106,11 @@ public class LocationSearchActivity extends AppCompatActivity implements GoogleA
 
     @Override
     public void onConnectionSuspended(int i) {
-        mPlaceArrayAdapter.setGoogleApiClient(null);
+     //   mPlaceArrayAdapter.setGoogleApiClient(null);
         Log.e("Location", "Google Places API connection suspended.");
     }
-    private AdapterView.OnItemClickListener mAutocompleteClickListener = new AdapterView.OnItemClickListener() {
+
+    /*  private AdapterView.OnItemClickListener mAutocompleteClickListener = new AdapterView.OnItemClickListener() {
         @Override
         public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
             final PlaceArrayAdapter.PlaceAutocomplete item = mPlaceArrayAdapter.getItem(position);
@@ -106,9 +121,9 @@ public class LocationSearchActivity extends AppCompatActivity implements GoogleA
             //showToast(""+item.description);
             Log.i("Location", "Fetching details for ID: " + item.placeId);
         }
-    };
+    };*/
 
-    private ResultCallback<PlaceBuffer> mUpdatePlaceDetailsCallback = new ResultCallback<PlaceBuffer>() {
+   /* private ResultCallback<PlaceBuffer> mUpdatePlaceDetailsCallback = new ResultCallback<PlaceBuffer>() {
         @Override
         public void onResult(PlaceBuffer places) {
             if (!places.getStatus().isSuccess()) {
@@ -126,5 +141,6 @@ public class LocationSearchActivity extends AppCompatActivity implements GoogleA
             setResult(Activity.RESULT_OK, resultIntent);
             finish();
         }
-    };
+    };*/
+
 }

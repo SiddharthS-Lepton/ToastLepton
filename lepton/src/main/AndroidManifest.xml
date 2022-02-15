@@ -28,16 +28,22 @@
             android:name="com.google.android.geo.API_KEY"
             android:value="@string/google_maps_key" />
 
+
+
         <activity
             android:name="com.example.lepton.LeptonMapsActivity"
             android:exported="true"
             android:label="@string/title_activity_lepton_maps">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
+
+        <activity
+            android:name="com.example.lepton.LocationSearchActivityV2"
+            android:exported="true"
+            android:label="@string/title_activity_lepton_maps">
+
+        </activity>
+
 
 
     </application>

@@ -1,18 +1,60 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    android:layout_marginTop="@dimen/_10sdp"
+ android:layout_marginLeft="@dimen/_10sdp"
+   android:layout_centerInParent="true"
+   android:orientation="vertical"
+    tools:context=".LeptonMapsActivity">
+
+
+    <Button
+        android:id="@+id/mapview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Map View"
+        android:visibility="gone"
+        tools:layout_editor_absoluteX="35dp"
+        tools:layout_editor_absoluteY="20dp" />
+
+    <Button
+        android:id="@+id/locationSearch"
+        android:layout_width="wrap_content"
+        android:layout_gravity="center"
+        android:layout_height="wrap_content"
+        android:text="Search Location"
+        tools:layout_editor_absoluteX="33dp"
+        tools:layout_editor_absoluteY="63dp" />
 
     <TextView
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:id="@+id/tvmodified"
+        android:text="Modified Location : 65,76"
+        android:textSize="@dimen/_10sdp"
+        android:layout_height="wrap_content"/>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <TextView
+        android:layout_width="wrap_content"
+        android:id="@+id/tvsearchlocation"
+        android:text="Searched Location : Noida 28,72 "
+        android:textSize="@dimen/_10sdp"
+        android:layout_height="wrap_content"/>
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:src="@drawable/search"
+        android:layout_height="wrap_content"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:id="@+id/tvlocation"
+        android:layout_gravity="center"
+        android:text=" Location Screenshot: "
+        android:textSize="@dimen/_10sdp"
+        android:layout_height="wrap_content"/>
+
+</LinearLayout>
